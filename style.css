@@ -1,0 +1,133 @@
+:root {
+  --vh: 1vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: calc(var(--vh) * 100);
+  font-family: 'Montserrat', system-ui;
+  overflow: hidden;
+  background: #000;
+}
+
+/* FONDOS */
+.bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1.2s ease;
+}
+
+.bg-a { opacity: 1; }
+.bg-b { opacity: 0; }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+}
+
+/* TARJETA */
+.card {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
+  margin: auto;
+  height: 100%;
+  padding: 20px 22px 36px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
+/* CONTADOR */
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.time {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 10px 12px;
+  min-width: 62px;
+}
+
+.time span {
+  font-size: 22px;
+  font-weight: 600;
+  display: block;
+}
+
+.time small {
+  font-size: 11px;
+  opacity: .8;
+}
+
+/* CONTENIDO */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 6vw, 46px);
+  margin: 0 0 16px;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+p {
+  font-size: clamp(16px, 4vw, 22px);
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* BOTÓN */
+button {
+  padding: 16px 28px;
+  font-size: 16px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+button:disabled {
+  opacity: .6;
+}
+
+/* EFECTOS */
+#effects span {
+  position: fixed;
+  font-size: 26px;
+  pointer-events: none;
+  animation: explode 1.8s ease-out forwards;
+}
+
+@keyframes explode {
+  from {
+    transform: translate(0,0) scale(.4);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y)) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
