@@ -1,2 +1,2 @@
 # -boda
-E es una invitación para nuestra boda
+Esta es una invitación para nuestra boda
